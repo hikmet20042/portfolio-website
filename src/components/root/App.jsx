@@ -25,17 +25,18 @@ function App() {
             </nav>
             <header>
                 <a className='logo' href='/'>
-                    <img src='/public/Logo.svg' alt='logo' />
+                    <img src='/Logo.svg' alt='logo' />
                 </a>
 
                 <HamburgerMenu toggle={toggle} setToggle={setToggle} />
             </header>
             <main>
-                <img className='scroll-down' src='/public/scroll-down.svg' />
+                <img className='scroll-down' src='/scroll-down.svg' />
                 <section className='welcome'>
                     <h1>Hi, I am Hikmet.</h1>
                     <h2>I am front-end developer.</h2>
                 </section>
+                <section className='about'></section>
             </main>
             <footer></footer>
         </>
@@ -45,7 +46,7 @@ function HamburgerMenu({ toggle, setToggle }) {
     return (
         <div className={`right-menu `} onClick={() => setToggle(!toggle)}>
             <img
-                src='/public/hamburger.png'
+                src='/hamburger.png'
                 alt='hamburger menu'
                 className='hamburger'
             />
