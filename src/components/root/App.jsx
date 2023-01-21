@@ -1,15 +1,36 @@
 import { useState } from 'react'
 import { easeInOut, motion } from 'framer-motion'
+import { useEffect } from 'react'
+
 function App() {
     const [toggle, setToggle] = useState(false)
+    const [loading, setLoading] = useState(true)
+
+    setTimeout(() => {
+        setLoading(false)
+    }, 1000)
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
+            {loading && (
+                <div className='loading'>
+                    <div className='loading__logo'>
+                        <img src='/Logo.svg' alt='logo' />
+                    </div>
+                    <div className='loading__text'>
+                        <h1>Loading...</h1>
+                    </div>
+                </div>
+            )}
             <nav className={toggle && `show`}>
-                <div className='nav__header'>
+                <div tabindex='-1' className='nav__header'>
                     <HamburgerMenu toggle={toggle} setToggle={setToggle} />
                 </div>
-                <div className='nav__body'>
+                <div tabindex='-1' className='nav__body'>
                     <a
+                        tabindex='-1'
                         href='#about'
                         onClick={() => setToggle(!toggle)}
                         className='nav__body-navigation'
@@ -17,6 +38,7 @@ function App() {
                         About
                     </a>
                     <a
+                        tabindex='-1'
                         href='#projects'
                         onClick={() => setToggle(!toggle)}
                         className='nav__body-navigation'
@@ -24,6 +46,7 @@ function App() {
                         Projects
                     </a>
                     <a
+                        tabindex='-1'
                         href='#contact'
                         onClick={() => setToggle(!toggle)}
                         className='nav__body-navigation'
@@ -58,19 +81,14 @@ function App() {
                 <motion.section
                     initial={{ y: 50 }}
                     animate={{ y: 0 }}
-                    transition={{ duration: 1, ease: easeInOut }}
+                    transition={{ duration: 1, ease: easeInOut, delay: 1 }}
                     id='welcome'
                     className='welcome'
                 >
                     <h1>Hi, I am Hikmet.</h1>
                     <h2>I am front-end developer.</h2>
                 </motion.section>
-                <motion.section
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    id='about'
-                    className='about'
-                >
+                <motion.section id='about' className='about'>
                     <div className='header'>
                         <h1>About me</h1>
                         <hr className='subline' />
