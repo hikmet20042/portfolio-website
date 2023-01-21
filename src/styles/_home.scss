@@ -3,38 +3,30 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5rem;
-    min-height: 134px;
+
     .logo {
         display: block;
         cursor: pointer;
-        img {
-            transition: all 200ms;
-            width: 200px;
-            &:hover {
-                filter: drop-shadow(7px 7px 4px #044c48);
-            }
-        }
+        width: 200px;
     }
 
     .right-menu {
         padding: 1rem;
         cursor: pointer;
-
-        img {
-            width: 30px;
-        }
     }
+}
+.hamburger {
+    width: 40px;
 }
 nav {
     height: 100vh;
     background-color: darken($base-color, 3);
     width: 300px;
-
     position: absolute;
-    right: -300px;
+    right: -350px;
     transition: transform 200ms;
     &.show {
-        transform: translateX(-100%);
+        transform: translateX(-350px);
     }
     .nav__header {
         .right-menu {
@@ -42,9 +34,6 @@ nav {
             display: flex;
             justify-content: flex-end;
             padding: 1rem;
-            img {
-                width: 30px;
-            }
         }
     }
     .nav__body {
@@ -56,9 +45,6 @@ nav {
             transition: all 200ms;
             &:hover {
                 background-color: rgba($color: #fff, $alpha: 0.1);
-                // -webkit-box-shadow: 0px 0px 42px -26px rgba(255, 255, 255, 1);
-                // -moz-box-shadow: 0px 0px 42px -26px rgba(255, 255, 255, 1);
-                // box-shadow: 0px 0px 42px -26px rgba(255, 255, 255, 1);
             }
         }
     }
@@ -72,88 +58,128 @@ nav {
         font-size: 12px;
     }
 }
-@keyframes welcome {
-    0% {
-        transform: translateY(70px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-@keyframes bounce-top {
-    0% {
-        transform: translateY(-30px);
-        animation-timing-function: ease-in;
-        opacity: 1;
-    }
-    24% {
-        opacity: 1;
-    }
-    40% {
-        transform: translateY(-24px);
-        animation-timing-function: ease-in;
-    }
-    65% {
-        transform: translateY(-12px);
-        animation-timing-function: ease-in;
-    }
-    82% {
-        transform: translateY(-6px);
-        animation-timing-function: ease-in;
-    }
-    93% {
-        transform: translateY(-4px);
-        animation-timing-function: ease-in;
-    }
-    25%,
-    55%,
-    75%,
-    87% {
-        transform: translateY(0);
-        animation-timing-function: ease-out;
-    }
-    100% {
-        transform: translateY(0);
-        animation-timing-function: ease-out;
-        opacity: 1;
-    }
-}
+
 main {
     .scroll-down {
         height: 50px;
-
         position: absolute;
-        bottom: 20px;
+        bottom: 60px;
         cursor: pointer;
-        animation: bounce-top 2s ease-in-out infinite forwards;
     }
     .welcome {
-        animation-name: welcome;
-        animation-duration: 1s;
-        animation-iteration-count: 1;
-        animation-delay: 100ms;
-        padding: 7rem;
+        padding: 0 7rem;
         min-height: 500px;
-        margin: 3rem auto;
+        margin: 1.5rem auto;
         max-width: 90%;
-        background-image: url('/public/kyle-sung-oQuP_XBjOMY-unsplash.jpg');
+        background-image: url('/welcome-bg.jpg');
         background-repeat: repeat;
         background-size: cover;
         background-position: 200px -180px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        h1 {
+        h1,
+        h2 {
             font-size: 40px;
-            color: white;
             font-weight: 600;
             margin: 0;
         }
-        h2 {
-            font-size: 40px;
-            color: white;
-            font-weight: 600;
-            margin: 0;
+    }
+    .about {
+        padding: 5rem 0;
+        height: 100vh;
+        .header {
+            h1 {
+                font-size: 48px;
+                text-align: center;
+                margin-bottom: 0;
+            }
+            .subline {
+                width: 200px;
+                height: 4px;
+                background-color: #fff;
+                border-radius: 8px;
+            }
+        }
+        .body {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5rem;
+            gap: 3rem;
+            .left {
+                width: 500px;
+                font-size: 24px;
+                font-weight: 700;
+                margin: auto 0;
+            }
+            .right {
+                flex: 1;
+                h1 {
+                    // font-size: 32px;
+                    text-align: center;
+                }
+                .tools {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    user-select: none;
+                    .tool {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 1rem;
+                        .name {
+                            text-align: center;
+                            font-weight: 600;
+                        }
+                        img {
+                            height: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .projects {
+        height: 100vh;
+        padding: 2rem;
+
+        .header {
+            margin-bottom: 3rem;
+            h1 {
+                font-size: 48px;
+                text-align: center;
+                margin-bottom: 0;
+            }
+            .subline {
+                width: 200px;
+                height: 4px;
+                background-color: #fff;
+                border-radius: 8px;
+            }
+        }
+        .body {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            .project {
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 2rem;
+                .left {
+                    img {
+                        width: 300px;
+                    }
+                }
+                .right {
+                    a {
+                        font-weight: 600;
+                        margin-right: 10px;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
         }
     }
 }

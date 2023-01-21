@@ -2,10 +2,11 @@
 @import 'home';
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 html {
-    width: 100%;
+    width: 100vw;
     height: 100%;
 }
 
@@ -15,10 +16,11 @@ body {
     padding: 0;
     background-color: $base-color;
     font-family: Italiana, sans-serif;
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     scroll-behavior: smooth;
+    color: white;
 }
 
 ul {
