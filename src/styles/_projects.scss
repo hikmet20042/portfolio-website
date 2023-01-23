@@ -1,0 +1,90 @@
+.projects {
+    min-height: 100vh;
+    padding: 2rem 10rem;
+
+    .header {
+        margin-bottom: 3rem;
+        h1 {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .subline {
+            width: 200px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+    }
+    .body {
+        .project {
+            display: flex;
+
+            margin-bottom: 2rem;
+            .left {
+                transition: all 300ms;
+                position: relative;
+                margin-right: -4rem;
+                img {
+                    height: 300px;
+
+                    border-radius: 7px;
+                }
+                &:hover {
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .filter {
+                        opacity: 1;
+                    }
+                }
+                a {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+                    font-size: 20px;
+                    font-weight: 700;
+                    z-index: 2;
+                }
+                .filter {
+                    border-radius: 7px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: calc(100% - 3px);
+                    transition: all 300ms ease-in-out;
+                    opacity: 0;
+                    z-index: 1;
+                    background-color: rgba($color: #000, $alpha: 0.6);
+                }
+            }
+            .right {
+                background-color: $second-bg-color;
+                height: 180px;
+                margin-top: 6rem;
+                padding: 1rem 2rem;
+                z-index: 3;
+                border-radius: 10px;
+                box-shadow: 9.4px 9.4px 42px -15px rgba(0, 0, 0, 0.09),
+                    17.1px 17.1px 40.6px -15px rgba(0, 0, 0, 0.13),
+                    25.1px 25.1px 36.4px -15px rgba(0, 0, 0, 0.144),
+                    39.6px 39.6px 37.7px -15px rgba(0, 0, 0, 0.15),
+                    100px 100px 80px -15px rgba(0, 0, 0, 0.2);
+                a {
+                    font-weight: 600;
+                    margin-right: 10px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

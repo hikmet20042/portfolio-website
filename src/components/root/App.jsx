@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import { easeInOut, motion } from 'framer-motion'
-import { useEffect } from 'react'
+import { useState } from 'react';
+import { easeInOut, motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 function App() {
-    const [toggle, setToggle] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const [toggle, setToggle] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     setTimeout(() => {
-        setLoading(false)
-    }, 1000)
+        setLoading(false);
+    }, 1000);
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             {loading && (
@@ -26,7 +26,7 @@ function App() {
             )}
             <nav className={toggle && `show`}>
                 <div tabindex='-1' className='nav__header'>
-                    <HamburgerMenu toggle={toggle} setToggle={setToggle} />
+                    <ToggleMenu toggle={toggle} setToggle={setToggle} />
                 </div>
                 <div tabindex='-1' className='nav__body'>
                     <a
@@ -62,7 +62,9 @@ function App() {
                 <a className='logo' href='/'>
                     <img src='/Logo.svg' className='logo' alt='logo' />
                 </a>
-                <HamburgerMenu toggle={toggle} setToggle={setToggle} />
+                {!toggle && (
+                    <ToggleMenu toggle={toggle} setToggle={setToggle} />
+                )}
             </header>
             <main>
                 <a href='#about'>
@@ -85,7 +87,7 @@ function App() {
                     id='welcome'
                     className='welcome'
                 >
-                    <h1>Hi, I am Hikmet.</h1>
+                    <h1>Hi, I am Hikmet Memmedli.</h1>
                     <h2>I am front-end developer.</h2>
                 </motion.section>
                 <motion.section id='about' className='about'>
@@ -191,6 +193,13 @@ function App() {
                         <div className='project'>
                             <div className='left'>
                                 <img src='/project-1.jpg' alt='' />
+                                <a
+                                    href='https://h-and-m-weather.netlify.app/'
+                                    target='_blank'
+                                >
+                                    View Live
+                                </a>
+                                <div className='filter'></div>
                             </div>
                             <div className='right'>
                                 <h1>H&M Weather</h1>
@@ -198,12 +207,7 @@ function App() {
                                     Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Quisquam, quae.
                                 </p>
-                                <a
-                                    href='https://h-and-m-weather.netlify.app/'
-                                    target='_blank'
-                                >
-                                    View Project
-                                </a>
+
                                 <a
                                     href='https://github.com/hikmet20042/Weather-H-M'
                                     target='_blank'
@@ -215,6 +219,13 @@ function App() {
                         <div className='project'>
                             <div className='left'>
                                 <img src='/project-2.jpg' alt='' />
+                                <a
+                                    href='https://gpt3-hm.netlify.app/'
+                                    target='_blank'
+                                >
+                                    View Live
+                                </a>
+                                <div className='filter'></div>
                             </div>
                             <div className='right'>
                                 <h1>GPT3</h1>
@@ -222,12 +233,7 @@ function App() {
                                     Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Quisquam, quae.
                                 </p>
-                                <a
-                                    href='https://gpt3-hm.netlify.app/'
-                                    target='_blank'
-                                >
-                                    View Project
-                                </a>
+
                                 <a
                                     href='https://github.com/hikmet20042/gpt3'
                                     target='_blank'
@@ -239,6 +245,13 @@ function App() {
                         <div className='project'>
                             <div className='left'>
                                 <img src='/project-3.jpg' alt='' />
+                                <a
+                                    href='https://gingerx.netlify.app/'
+                                    target='_blank'
+                                >
+                                    View Live
+                                </a>
+                                <div className='filter'></div>
                             </div>
                             <div className='right'>
                                 <h1>GingerX Bar</h1>
@@ -246,12 +259,7 @@ function App() {
                                     Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Quisquam, quae.
                                 </p>
-                                <a
-                                    href='https://gingerx.netlify.app/'
-                                    target='_blank'
-                                >
-                                    View Project
-                                </a>
+
                                 <a
                                     href='https://github.com/hikmet20042/gingerx'
                                     target='_blank'
@@ -262,10 +270,17 @@ function App() {
                         </div>
                     </div>
                 </section>
+                <div className='contact' id='contact'>
+                    <div className='header'>
+                        <h1>About me</h1>
+                        <hr className='subline' />
+                        <h2>Get In Touch</h2>
+                    </div>
+                </div>
             </main>
             <footer></footer>
         </>
-    )
+    );
 }
 const hamburgerVariants = {
     open: {
@@ -280,17 +295,21 @@ const hamburgerVariants = {
             duration: 0.5,
         },
     },
-}
-function HamburgerMenu({ toggle, setToggle }) {
+};
+function ToggleMenu({ toggle, setToggle }) {
     return (
         <div className={`right-menu `} onClick={() => setToggle(!toggle)}>
-            <img
-                src='/hamburger.svg'
-                alt='hamburger menu'
-                className='hamburger'
-            />
+            {toggle ? (
+                <img src='/exit.svg' alt='exit icon' className='hamburger' />
+            ) : (
+                <img
+                    src='/hamburger.svg'
+                    alt='hamburger menu'
+                    className='hamburger'
+                />
+            )}
         </div>
-    )
+    );
 }
 
-export default App
+export default App;

@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5rem;
+
+    .logo {
+        display: block;
+        cursor: pointer;
+        width: 200px;
+    }
+
+    .right-menu {
+        padding: 1rem;
+        cursor: pointer;
+    }
+}

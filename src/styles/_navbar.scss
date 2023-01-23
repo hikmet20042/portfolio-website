@@ -1,0 +1,43 @@
+.hamburger {
+    width: 40px;
+}
+nav {
+    height: 100vh;
+    background-color: darken($base-color, 3);
+    width: 300px;
+    position: absolute;
+    right: -350px;
+    transition: transform 200ms;
+    &.show {
+        transform: translateX(-350px);
+    }
+    .nav__header {
+        .right-menu {
+            cursor: pointer;
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem;
+        }
+    }
+    .nav__body {
+        padding: 3rem 0;
+        .nav__body-navigation {
+            display: block;
+            font-size: 28px;
+            padding: 1rem 2rem;
+            transition: all 200ms;
+            &:hover {
+                background-color: rgba($color: #fff, $alpha: 0.1);
+            }
+        }
+    }
+    .nav__footer {
+        height: 50px;
+        position: absolute;
+        bottom: -25px;
+        padding: 0 10px;
+        color: rgba($color: #fff, $alpha: 0.5);
+        width: 100%;
+        font-size: 12px;
+    }
+}
