@@ -89,7 +89,7 @@ main .welcome {
   min-height: 500px;
   margin: 1.5rem auto;
   max-width: 90%;
-  background-image: url("/welcome-bg.jpg");
+  background-image: url("/images/welcome-bg.jpg");
   background-repeat: repeat;
   background-size: cover;
   background-position: 200px -180px;
