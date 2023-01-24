@@ -1,6 +1,12 @@
 import React from 'react';
-
+import { useState } from 'react';
 const Contact = () => {
+    function handleSubmit() {
+        console.log(fullname, mail, message);
+    }
+    const [fullname, setFullname] = useState('');
+    const [mail, setMail] = useState('');
+    const [message, setMessage] = useState('');
     return (
         <div className='contact' id='contact'>
             <div className='header'>
@@ -33,18 +39,42 @@ const Contact = () => {
                     <form>
                         <div>
                             <label htmlFor='fullname'>Full Name</label>
-                            <input type='text' name='fullname' id='fullname' />
+                            <input
+                                type='text'
+                                onChange={(e) => setFullname(e.target.value)}
+                                name='fullname'
+                                id='fullname'
+                            />
                         </div>
                         <div>
                             <label htmlFor='email'>Email</label>
-                            <input type='email' name='email' id='email' />
+                            <input
+                                onChange={(e) => setMail(e.target.value)}
+                                type='email'
+                                name='email'
+                                id='email'
+                            />
                         </div>
                         <div>
                             <label htmlFor='message'>Your Message</label>
-                            <textarea name='message' id='message' />
+                            <textarea
+                                onChange={(e) => {
+                                    setMessage(e.target.value);
+                                }}
+                                name='message'
+                                id='message'
+                            />
                         </div>
 
-                        <button type='submit'>Send</button>
+                        <button
+                            type='submit'
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleSubmit(e);
+                            }}
+                        >
+                            Send
+                        </button>
                     </form>
                 </div>
             </div>
