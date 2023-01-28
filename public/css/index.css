@@ -4,6 +4,11 @@ main .scroll-down {
   bottom: 60px;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  main .scroll-down {
+    display: none;
+  }
+}
 
 .loading {
   position: fixed;
@@ -24,6 +29,14 @@ main .scroll-down {
   font-size: 24px;
   font-weight: 600;
 }
+@media screen and (max-width: 768px) {
+  .loading {
+    width: 100vw;
+  }
+  .loading .loading__text {
+    font-size: 18px;
+  }
+}
 
 header {
   display: flex;
@@ -35,6 +48,9 @@ header .logo {
   display: block;
   cursor: pointer;
   width: 200px;
+}
+header .logo:hover nav {
+  display: block;
 }
 header .right-menu {
   padding: 1rem;
@@ -48,19 +64,31 @@ header .right-menu {
 nav {
   height: 100vh;
   background-color: #011a19;
-  width: 300px;
   position: absolute;
   right: -350px;
   transition: transform 200ms;
+  display: none;
+  width: 22rem;
 }
 nav.show {
+  display: block;
+}
+nav.move {
   transform: translateX(-350px);
+}
+nav.move-back {
+  transform: translateX(0);
 }
 nav .nav__header .right-menu {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
   padding: 1rem;
+}
+@media screen and (max-width: 768px) {
+  nav .nav__header .right-menu img {
+    height: 40px;
+  }
 }
 nav .nav__body {
   padding: 3rem 0;
@@ -83,6 +111,14 @@ nav .nav__footer {
   width: 100%;
   font-size: 12px;
 }
+@media screen and (max-width: 768px) {
+  nav {
+    width: 15rem;
+  }
+  nav nav.move {
+    transform: translateX(0);
+  }
+}
 
 main .welcome {
   padding: 0 4rem;
@@ -103,10 +139,28 @@ main .welcome h2 {
   font-weight: 600;
   margin: 0;
 }
+@media screen and (max-width: 768px) {
+  main .welcome {
+    min-height: 200px;
+    padding: 0 1.5rem;
+    background-repeat: repeat;
+    background-position: 90px -5px;
+  }
+  main .welcome h1,
+main .welcome h2 {
+    font-size: 1rem;
+  }
+}
 
 main .about {
   padding: 5rem 0;
   min-height: 100vh;
+}
+@media screen and (max-width: 768px) {
+  main .about {
+    padding: 1rem 0;
+    min-height: 70vh;
+  }
 }
 main .about .header h1 {
   font-size: 48px;
@@ -119,17 +173,39 @@ main .about .header .subline {
   background-color: #fff;
   border-radius: 8px;
 }
+@media screen and (max-width: 768px) {
+  main .about .header h1 {
+    font-size: 24px;
+  }
+  main .about .header .subline {
+    width: 100px;
+  }
+}
 main .about .body {
   display: flex;
   justify-content: space-between;
   padding: 0 5rem;
   gap: 3rem;
 }
+@media screen and (max-width: 768px) {
+  main .about .body {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+}
 main .about .body .left {
   width: 500px;
   font-size: 24px;
   font-weight: 700;
   margin: auto 0;
+}
+@media screen and (max-width: 768px) {
+  main .about .body .left {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
 }
 main .about .body .right {
   flex: 1;
@@ -157,10 +233,23 @@ main .about .body .right .tools .tool .name {
 main .about .body .right .tools .tool img {
   height: 50px;
 }
+@media screen and (max-width: 768px) {
+  main .about .body .right .tools {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  main .about .body .right .tools .tool:last-of-type {
+    display: none;
+  }
+}
 
 .projects {
   min-height: 100vh;
   padding: 2rem 10rem;
+}
+@media screen and (max-width: 768px) {
+  .projects {
+    padding: 1rem;
+  }
 }
 .projects .header {
   margin-bottom: 3rem;
@@ -176,9 +265,30 @@ main .about .body .right .tools .tool img {
   background-color: #fff;
   border-radius: 8px;
 }
+@media screen and (max-width: 768px) {
+  .projects .header h1 {
+    font-size: 24px;
+  }
+  .projects .header .subline {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .projects .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .projects .body .project {
   display: flex;
   margin-bottom: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .projects .body .project {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
 }
 .projects .body .project .left {
   transition: all 300ms;
@@ -220,6 +330,21 @@ main .about .body .right .tools .tool img {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.6);
 }
+@media screen and (max-width: 768px) {
+  .projects .body .project .left {
+    margin-right: 0;
+  }
+  .projects .body .project .left img {
+    height: 170px;
+  }
+  .projects .body .project .left a {
+    height: 170px;
+  }
+  .projects .body .project .left .filter {
+    height: 170px;
+    width: 334px;
+  }
+}
 .projects .body .project .right {
   background-color: #011d1c;
   height: 180px;
@@ -228,6 +353,26 @@ main .about .body .right .tools .tool img {
   z-index: 3;
   border-radius: 10px;
   box-shadow: 9.4px 9.4px 42px -15px rgba(0, 0, 0, 0.09), 17.1px 17.1px 40.6px -15px rgba(0, 0, 0, 0.13), 25.1px 25.1px 36.4px -15px rgba(0, 0, 0, 0.144), 39.6px 39.6px 37.7px -15px rgba(0, 0, 0, 0.15), 100px 100px 80px -15px rgba(0, 0, 0, 0.2);
+}
+@media screen and (max-width: 768px) {
+  .projects .body .project .right {
+    padding: 1rem;
+    margin-top: -2rem;
+    margin-left: 1rem;
+    height: 120px;
+    width: 330px;
+    min-width: none;
+  }
+  .projects .body .project .right h1 {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  .projects .body .project .right p {
+    font-size: 12px;
+  }
+  .projects .body .project .right a {
+    font-size: 12px;
+  }
 }
 .projects .body .project .right a {
   font-weight: 600;
@@ -260,6 +405,17 @@ main .contact .header h2 {
   text-align: center;
   margin-top: 1rem;
 }
+@media screen and (max-width: 768px) {
+  main .contact .header {
+    margin-bottom: 0;
+  }
+  main .contact .header h1 {
+    font-size: 36px;
+  }
+  main .contact .header h2 {
+    font-size: 24px;
+  }
+}
 main .contact .body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -275,6 +431,11 @@ main .contact .body .left a img {
 }
 main .contact .body .left a img:hover {
   opacity: 0.8;
+}
+@media screen and (max-width: 768px) {
+  main .contact .body .left a img {
+    height: 30px;
+  }
 }
 main .contact .body .right {
   width: 70%;
@@ -319,6 +480,37 @@ main .contact .body .right button:hover {
   background-color: #022927;
   border: 2px solid #425a4f;
 }
+@media screen and (max-width: 768px) {
+  main .contact .body .right {
+    width: 100%;
+  }
+  main .contact .body .right input,
+main .contact .body .right textarea {
+    height: 25px;
+  }
+  main .contact .body .right textarea {
+    height: 80px;
+  }
+  main .contact .body .right button {
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  main .contact .body {
+    grid-template-columns: 1fr;
+  }
+  main .contact .body .left {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  main .contact .body .right {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -326,9 +518,9 @@ main .contact .body .right button:hover {
   font-family: Italiana, sans-serif;
 }
 
-html {
-  width: 100vw;
-  height: 100%;
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
@@ -339,7 +531,6 @@ body {
   font-family: Italiana, sans-serif;
   width: 100vw;
   height: 100%;
-  overflow-x: hidden;
   scroll-behavior: smooth;
   color: white;
 }

@@ -4,12 +4,19 @@
 nav {
     height: 100vh;
     background-color: darken($base-color, 3);
-    width: 300px;
     position: absolute;
     right: -350px;
     transition: transform 200ms;
+    display: none;
+    width: 22rem;
     &.show {
+        display: block;
+    }
+    &.move {
         transform: translateX(-350px);
+    }
+    &.move-back {
+        transform: translateX(0);
     }
     .nav__header {
         .right-menu {
@@ -17,6 +24,11 @@ nav {
             display: flex;
             justify-content: flex-end;
             padding: 1rem;
+            @media screen and (max-width: 768px) {
+                img {
+                    height: 40px;
+                }
+            }
         }
     }
     .nav__body {
@@ -39,5 +51,11 @@ nav {
         color: rgba($color: #fff, $alpha: 0.5);
         width: 100%;
         font-size: 12px;
+    }
+    @media screen and (max-width: 768px) {
+        width: 15rem;
+        nav.move {
+            transform: translateX(0);
+        }
     }
 }

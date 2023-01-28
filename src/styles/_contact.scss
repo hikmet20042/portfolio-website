@@ -20,6 +20,15 @@ main {
                 text-align: center;
                 margin-top: 1rem;
             }
+            @media screen and (max-width: 768px) {
+                margin-bottom: 0;
+                h1 {
+                    font-size: 36px;
+                }
+                h2 {
+                    font-size: 24px;
+                }
+            }
         }
         .body {
             display: grid;
@@ -34,6 +43,9 @@ main {
                         transition: all 200ms;
                         &:hover {
                             opacity: 0.8;
+                        }
+                        @media screen and (max-width: 768px) {
+                            height: 30px;
                         }
                     }
                 }
@@ -79,6 +91,36 @@ main {
                         background-color: $base-color;
                         border: 2px solid #425a4f;
                     }
+                }
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+
+                    input,
+                    textarea {
+                        height: 25px;
+                    }
+                    textarea {
+                        height: 80px;
+                    }
+                    button {
+                        width: 150px;
+                        height: 30px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            @media screen and (max-width: 768px) {
+                grid-template-columns: 1fr;
+
+                .left {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+
+                .right {
+                    width: 80%;
+                    margin: 0 auto;
                 }
             }
         }

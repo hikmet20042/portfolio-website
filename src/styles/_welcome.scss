@@ -17,5 +17,15 @@ main {
             font-weight: 600;
             margin: 0;
         }
+        @media screen and (max-width: 768px) {
+            min-height: 200px;
+            padding: 0 1.5rem;
+            background-repeat: repeat;
+            background-position: 90px -5px;
+            h1,
+            h2 {
+                font-size: 1rem;
+            }
+        }
     }
 }
